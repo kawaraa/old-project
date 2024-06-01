@@ -1,0 +1,67 @@
+.summary.wrapper {
+  position: relative;
+  min-width: 50%;
+  max-width: 50%;
+}
+.item-list.summary {
+  background: var(--white-color);
+  min-height: 60px;
+  margin: 15px 5px 0 0;
+  border-radius: 10px;
+}
+.summary.heading {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.summary-list-header {
+  display: flex;
+}
+.list-header.head {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 17px;
+  border-bottom: 0.1px solid var(--nav-bg-color);
+}
+.summary-list.item {
+  display: flex;
+  margin: 10px 0;
+}
+.list-item.cell {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 17px;
+  word-break: break-all;
+}
+
+.summary.total {
+  padding: 5px 10px;
+  font-size: 18px;
+  text-align: right;
+  border-top: 0.1px solid var(--nav-bg-color);
+}
+
+/* =============== Global Tablet styles =============== */
+@media screen and (max-width: 1170px) {
+  .list-header.head {
+    padding: 5px 0;
+    font-size: 15px;
+  }
+  .list-item.cell {
+    padding: 5px 0;
+    font-size: 15px;
+  }
+  .summary.total {
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+}
+
+/* =============== Global Mobile styles =============== */
+@media screen and (max-width: 800px) {
+  .search-for-product.container {
+    min-width: 100%;
+    width: auto;
+  }
+}

@@ -1,0 +1,113 @@
+CREATE DATABASE IF NOT EXISTS north;
+
+USE north;
+
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` VARCHAR(250),
+  `name` VARCHAR(50) NULL,
+  `email` VARCHAR(100) NOT NULL UNIQUE,
+  `password` VARCHAR(250) NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `shop` (
+  `id` VARCHAR(250),
+  `name` VARCHAR(250) NOT NULL,
+  `domain` VARCHAR(250) NOT NULL UNIQUE,
+  `accessTokens` VARCHAR(250) NOT NULL,
+  `syncStatus` TINYINT(1) NOT NULL DEFAULT 0,
+  `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `brand` (
+  `id` VARCHAR(250),
+  `name` VARCHAR(250) NOT NULL UNIQUE,
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `shopBrand` (
+  `shop` VARCHAR(250) REFERENCES shop(id),
+  `brand` VARCHAR(250) REFERENCES brand(id)
+);
+
+-- ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY '';
+-- flush privileges;
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+-- CREATE TABLE IF NOT EXISTS `shopifyApp` (
+--   `name` VARCHAR(250) NOT NULL,
+--   `accessToken` VARCHAR(250) NOT NULL,
+--   `shop` VARCHAR(250),
+--   FOREIGN KEY(shop) REFERENCES shop(id),
+--   PRIMARY KEY(`accessToken`, `shop`)
+-- );
+
+
+
+CREATE DATABASE IF NOT EXISTS oger;
+
+USE oger;
+
+CREATE TABLE IF NOT EXISTS `shop` (
+  `id` VARCHAR(250),
+  `name` VARCHAR(250) NOT NULL,
+  `domain` VARCHAR(250) NOT NULL UNIQUE,
+  `accessTokens` VARCHAR(250) NOT NULL,
+  `syncStatus` TINYINT(1) NOT NULL DEFAULT 0,
+  `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` VARCHAR(250) NOT NULL UNIQUE,
+  `orderId` VARCHAR(250) NOT NULL,
+  `shop` VARCHAR(100) NOT NULL,
+  `product` VARCHAR(50) NOT NULL,
+  `variant` VARCHAR(50) NOT NULL,
+  `title` VARCHAR(250) NOT NULL,
+  `name` VARCHAR(250) NOT NULL,
+  `fields` VARCHAR(250) NOT NULL,
+  `location` VARCHAR(100) NOT NULL,
+  `status` ENUM('PICKUP', 'RECEIVED', 'INPROGRESS', 'READY', 'INSTORE') NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (shop) REFERENCES shop(id),
+  PRIMARY KEY(`orderId`, `variant`)
+);
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` VARCHAR(250),
+  `email` VARCHAR(100) NOT NULL UNIQUE,
+  `password` VARCHAR(250) NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
+  `type` ENUM('EMPLOYEE', 'TAILOR') NOT NULL,
+  `shop` VARCHAR(100) NOT NULL,
+  `location` VARCHAR(100) NOT NULL,
+  `products` VARCHAR(250) NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (shop) REFERENCES shop(id),
+  PRIMARY KEY(`id`)
+);
+
+-- CREATE TABLE IF NOT EXISTS `products` (
+--   `id` VARCHAR(250) NOT NULL,
+--   `userId` VARCHAR(250),
+--   `title` VARCHAR(250) NOT NULL,
+--   FOREIGN KEY (userId) REFERENCES user(id),
+--   PRIMARY KEY(`id`, `userId`)
+-- );
+
+-- ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY '';
+-- flush privileges;
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+-- CREATE TABLE IF NOT EXISTS `shopifyApp` (
+--   `name` VARCHAR(250) NOT NULL,
+--   `accessToken` VARCHAR(250) NOT NULL,
+--   `shop` VARCHAR(250),
+--   FOREIGN KEY(shop) REFERENCES shop(id),
+--   PRIMARY KEY(`accessToken`, `shop`)
+-- );

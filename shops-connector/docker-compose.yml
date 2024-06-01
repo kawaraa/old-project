@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  database:
+    container_name: shops-connector-sql-database
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root-psw
+    restart: always
+    tty: true
+
+  app:
+    container_name: shops-connector
+    image: node:alpine
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home
+    working_dir: /home
+    command: npm run dev
+    depends_on:
+      - database
+    restart: always
+    tty: true
+
+  dbadmin:
+    container_name: shops-connector-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 3000:80
+    environment:
+      PMA_HOST: database
+    depends_on:
+      - database
+    restart: always
+    tty: true

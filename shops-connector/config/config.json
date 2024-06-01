@@ -1,0 +1,114 @@
+{
+  "passwordError": "Password must be at least 8 Characters / Numbers, 1 special characters / symbols, 1 number and 1 capital letter",
+  "firewall": {
+    "secretKey": "token-secret",
+    "tokenOptions": {
+      "expiresIn": "1h"
+    },
+    "cookieOption": {
+      "httpOnly": true
+    },
+    "superUsername": "",
+    "superUserPassword": ""
+  },
+  "mysql": {
+    "host": "",
+    "port": 3306,
+    "user": "",
+    "password": "",
+    "database": "",
+    "connectionUrl": ""
+  },
+  "ftpProvider": {
+    "host": "",
+    "port": 21,
+    "user": "",
+    "password": ""
+  },
+  "erpRepository": {
+    "createOrder": {
+      "url": "/",
+      "method": "POST"
+    },
+    "getOrdersStatus": {
+      "url": "/",
+      "method": "POST"
+    },
+    "ftp": {
+      "euStockFilePath": "/eu_stocks.xml",
+      "usStockFilePath": "/us_stocks.xml",
+      "pricesFilePath": "/all_prices.xml"
+    }
+  },
+  "shopifyRepository": {
+    "getProducts": {
+      "url": "/admin/api/2022-01/products.json",
+      "method": "GET"
+    },
+    "getProductByType": {
+      "url": "/admin/api/2022-01/products.json?product_type=",
+      "method": "GET"
+    },
+    "getVariantById": {
+      "url": "/admin/api/2022-01/variants/xxx.json",
+      "method": "GET"
+    },
+    "getLocations": {
+      "url": "/admin/api/2022-01/locations.json",
+      "method": "GET"
+    },
+    "getInventoryLevels": {
+      "url": "/admin/api/2022-01/inventory_levels.json?inventory_item_ids=",
+      "method": "GET"
+    },
+    "updateInventoryLevel": {
+      "url": "/admin/api/2022-01/inventory_levels/set.json",
+      "method": "POST"
+    },
+    "getOrders": {
+      "url": "/admin/api/2022-01/orders.json?",
+      "method": "GET"
+    },
+    "getOrderById": {
+      "url": "/admin/api/2022-01/orders/xxx.json",
+      "method": "GET"
+    },
+    "updateOrder": {
+      "url": "/admin/api/2022-01/orders/xxx.json",
+      "method": "PUT"
+    },
+    "getOrderRefunds": {
+      "url": "/admin/api/2022-01/orders/xxx/refunds.json",
+      "method": "GET"
+    },
+    "getProductMetaFields": {
+      "url": "/admin/api/2022-01/products/xxx/metafields.json",
+      "method": "GET"
+    },
+    "getVariantMetaFields": {
+      "url": "/admin/api/2022-01/products/productId/variants/variantId/metafields.json",
+      "method": "GET"
+    },
+    "createProduct": {
+      "url": "/admin/api/2022-01/products.json",
+      "method": "POST"
+    },
+    "createFulfillment": {
+      "url": "/admin/api/2022-01/orders/xxx/fulfillments.json",
+      "method": "POST"
+    },
+    "updateProduct": {
+      "url": "/admin/api/2022-01/products/xxx.json",
+      "method": "PUT"
+    },
+    "updateFulfillment": {
+      "url": "/admin/api/2022-01/orders/xxx/fulfillments/xxx1.json",
+      "method": "PUT"
+    },
+    "deleteMetaField": {
+      "url": "/admin/api/2022-01/metafields/xxx.json",
+      "method": "DELETE"
+    }
+  },
+  "orderHandler": {}
+}

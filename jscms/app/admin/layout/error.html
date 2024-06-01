@@ -1,0 +1,16 @@
+module.exports = ( MESSAGE ) => `
+<style>
+  .error {
+    background: var(--error-big-color);
+    color: var(--error-color);
+    text-align: center;
+    padding: 20px;
+  }
+</style>
+
+<div class="outer-container">
+  <div class="container">
+    <p class="error">${MESSAGE}</p>
+  </div>
+</div>
+`;

@@ -1,0 +1,101 @@
+.search-for-product.wrapper {
+  min-width: 50%;
+  max-width: 50%;
+}
+.search-for-product.wrapper > .search-input {
+  margin: 0;
+}
+
+.item-list.product {
+  max-height: calc(100vh - 200px);
+  overflow: scroll;
+}
+.product.no-item {
+  padding: 20px 10px;
+}
+.list-header.form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+label[for="price-type"] {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+label[for="price-type"] > select[name="priceType"] {
+  flex: 1;
+  padding: 0 5px;
+  margin: 0 5px;
+  font-size: 18px;
+  border: 0.1px solid var(--nav-bg-color);
+  border-radius: 5px;
+}
+.list-header.form > select[name="boxSize"],
+.list-header.form > input[type="number"] {
+  flex: 1;
+  padding: 0 5px;
+  font-size: 18px;
+  border: 0.1px solid var(--nav-bg-color);
+  border-radius: 5px;
+}
+.list-header.form > .slash {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 3px;
+}
+.list-header.form > input[type="number"] {
+  margin-right: 5px;
+}
+.list-header.form > button[type="submit"] {
+  flex: 1;
+  font-size: 16px;
+  background: var(--nav-bg-color);
+  color: var(--white-color);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.list-header.form > button[type="submit"]:hover {
+  background: var(--hover-color);
+  color: var(--white-color);
+}
+
+.list-item.product.table {
+  display: block;
+}
+.list-table.product.row {
+  display: flex;
+}
+.list-table.product.row > .head {
+  width: 100px;
+  min-width: 100px;
+  margin: 0;
+  border-bottom: none;
+  border-right: 0.5px solid var(--font-light-color);
+}
+.list-table.product.row > .cell {
+  padding-left: 5px;
+}
+
+/* =============== Global Tablet styles =============== */
+@media screen and (max-width: 1170px) {
+  label[for="price-type"] > select[name="priceType"],
+  .list-header.form > select[name="boxSize"],
+  .list-header.form > input[type="number"] {
+    width: 50px;
+    padding: 0;
+    font-size: 15px;
+    margin: 0 3px;
+  }
+}
+
+/* =============== Global Mobile styles =============== */
+@media screen and (max-width: 800px) {
+  .search-for-product.container {
+    min-width: 100%;
+    width: auto;
+  }
+}

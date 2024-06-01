@@ -1,0 +1,9 @@
+FROM node:lts-alpine
+
+COPY . /app
+
+WORKDIR /app
+
+CMD npm install
+
+# RUN npm run dev

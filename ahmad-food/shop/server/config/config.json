@@ -1,0 +1,32 @@
+{
+  "port": 3001,
+  "publicDir": "/frontend/public",
+  "mysql": {
+    "host": "database",
+    "port": 3306,
+    "user": "root",
+    "password": "root-psw"
+  },
+  "firewall": {
+    "secretKey": "my-secret",
+    "tokenOptions": {
+      "expiresIn": "1h"
+    },
+    "cookieOption": {
+      "httpOnly": true
+    }
+  },
+  "authResolver": {
+    "cookieOption": {
+      "httpOnly": true
+    }
+  },
+  "nodemailer": {
+    "service": "gmail",
+    "auth": {
+      "user": "",
+      "pass": ""
+    }
+  },
+  "memberRepository": {}
+}

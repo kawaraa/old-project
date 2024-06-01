@@ -1,0 +1,23 @@
+module.exports = (CONTENT, NAVBAR, FOOTER, SIDE_MENU)=>`
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Ahmad" />
+
+    <title>AhmadFood</title>
+  </head>
+
+  <body>
+    <script src="/script/utility.js"></script>
+    <div class="outer-container">
+      ${NAVBAR || ""} ${SIDE_MENU || ""} ${CONTENT || ""} ${FOOTER || ""}
+    </div>
+  </body>
+
+</html>
+`

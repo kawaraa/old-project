@@ -1,0 +1,56 @@
+const navbar = require("./navbar.html");
+const footer = require("./footer.html");
+
+module.exports = ( CONTENT, USER, SIDE_MENU ) => `
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Main -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="jscms" />
+    <meta name="keywords"
+      content="jscms, JavaScript CMS, JavaScript Content Management SYstem, Free Content Management SYstem">
+    <meta name="description"
+      content="JavaScript Content Management System JSCMS is a JavaScript based CMS which is built using JavaScript.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#555555">
+
+    <!-- FavIcon -->
+    <link rel="icon" type="image/ico" href="/image/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/image/favicon/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/image/favicon/favicon-256x256.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/image/favicon/apple-touch-180x180.png" />
+    <link rel="manifest" href="/image/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/image/favicon/safari-pinned-tab.svg" color="#555555">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="/style/variables.css" />
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Lato&family=Roboto&family=Comic+Neue&family=Original+Surfer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>JavaScript CMS</title>
+  </head>
+
+  <body>
+    <script src="/script/utility.js"></script>
+    <script src="/script/element.js"></script>
+
+    ${!USER ? "" : navbar(USER)}
+
+
+    ${SIDE_MENU || ""}
+
+    ${CONTENT || ""}
+
+  </body>
+
+</html>
+`;

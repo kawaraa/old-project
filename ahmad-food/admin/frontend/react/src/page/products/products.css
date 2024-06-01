@@ -1,0 +1,39 @@
+.products.search-form {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+.products.search-input {
+  width: auto;
+  flex: 10;
+  margin: 0;
+}
+label[for="sort-by"] {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-size: 18px;
+}
+#sort-by {
+  margin-left: 10px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 0.1px solid var(--nav-bg-color);
+  border-radius: 5px;
+}
+.product.list {
+  list-style: none;
+}
+.product.list.fadeout {
+  list-style: none;
+  opacity: 0.3;
+}
+.update-quantity.wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#quantity {
+}
+button[type="button"] {
+}

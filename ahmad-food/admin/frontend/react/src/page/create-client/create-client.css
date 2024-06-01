@@ -1,0 +1,7 @@
+.create-client.form {
+  max-width: 80%;
+  margin: auto;
+  padding: 30px;
+  background: var(--white-color);
+  border-radius: 10px;
+}

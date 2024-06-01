@@ -1,0 +1,66 @@
+{
+  "login": {
+    "url": "/api/login",
+    "method": "POST"
+  },
+  "app": {
+    "url": "/api/state",
+    "method": "GET"
+  },
+  "employees": {
+    "url": "/api/employee/",
+    "method": "GET"
+  },
+  "adEmployee": {
+    "url": "/api/employee/add",
+    "method": "POST"
+  },
+  "deleteEmployee": {
+    "url": "/api/employee/delete/",
+    "method": "DELETE"
+  },
+  "clients": {
+    "url": "/api/client/",
+    "method": "GET"
+  },
+  "createClient": {
+    "url": "/api/client",
+    "method": "POST"
+  },
+  "client": {
+    "activate": {
+      "url": "/api/client/activate/",
+      "method": "POST"
+    },
+    "delete": {
+      "url": "/api/client/delete/",
+      "method": "DELETE"
+    }
+  },
+  "products": {
+    "url": "/api/product",
+    "method": "GET"
+  },
+  "createProduct": {
+    "url": "/api/product",
+    "method": "POST"
+  },
+  "product": {
+    "updateQuantity": {
+      "url": "/api/product/quantity",
+      "method": "PUT"
+    },
+    "delete": {
+      "url": "/api/product/",
+      "method": "DELETE"
+    }
+  },
+  "createInvoice": {
+    "url": "/api/invoice",
+    "method": "POST"
+  },
+  "deleteInvoice": {
+    "url": "/api/invoice/",
+    "method": "DELETE"
+  }
+}

@@ -1,0 +1,28 @@
+.new-invoice.container {
+  position: relative;
+}
+
+.invoice.inner-container {
+  display: flex;
+}
+.checkout[type="button"] {
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  font-size: 18px;
+  background: var(--nav-bg-color);
+  color: var(--white-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.checkout.disabled[type="button"],
+.checkout.disabled[type="button"]:hover {
+  background: var(--font-light-color);
+}
+.checkout[type="button"]:hover {
+  background: var(--hover-color);
+  color: var(--white-color);
+}

@@ -1,0 +1,33 @@
+{
+  "name": "shops-connector",
+  "version": "1.0.0",
+  "description": "Shops Connector is product management app where you can manage products and connect online shops / stores to ERP or other systems.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmad-flatline/shops-connector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmad-flatline/shops-connector/issues"
+  },
+  "homepage": "https://github.com/ahmad-flatline/shops-connector#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "cookie": "^0.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.1",
+    "ssh2-sftp-client": "^7.1.0",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "name": "name-njwfnown",
+  "type": "main",
+  "text": "",
+  "attributes": {
+    "class": "outer-container"
+  },
+  "elements": [
+    {
+      "id": "id-rowfjoie",
+      "type": "section",
+      "text": "",
+      "attributes": {
+        "class": "login container"
+      },
+      "elements": [
+        {
+          "id": "id-rowfjoie",
+          "type": "header",
+          "text": "",
+          "attributes": {
+            "class": "login header"
+          },
+          "elements": [
+            {
+              "id": "id-rowfjoie",
+              "type": "img",
+              "text": "",
+              "attributes": {
+                "src": "image/xite.svg",
+                "alt": "jscms logo",
+                "class": "login jscms-logo"
+              },
+              "elements": []
+            },
+            {
+              "id": "id-rowfjoie",
+              "type": "h1",
+              "text": "Log in to your account.",
+              "attributes": {
+                "class": "heading login"
+              },
+              "elements": []
+            }
+          ]
+        },
+        {
+          "id": "id-rowfjoie",
+          "type": "form",
+          "text": "",
+          "attributes": {
+            "class": "login form"
+          },
+          "elements": [
+            {
+              "id": "id-rowfjoie",
+              "type": "div",
+              "text": "",
+              "attributes": {
+                "class": "input-field email"
+              },
+              "elements": [
+                {
+                  "id": "id-rowfjoie",
+                  "type": "input",
+                  "text": "",
+                  "attributes": {
+                    "type": "email",
+                    "placeholder": "E-mail address",
+                    "spellcheck": "off",
+                    "autocapitalize": "none",
+                    "class": "no-line"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "id-rowfjoie",
+              "type": "div",
+              "text": "",
+              "attributes": {
+                "class": "input-field password"
+              },
+              "elements": [
+                {
+                  "id": "id-rowfjoie",
+                  "type": "input",
+                  "text": "",
+                  "attributes": {
+                    "type": "password",
+                    "placeholder": "Password",
+                    "class": "no-line"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "id-rowfjoie",
+              "type": "a",
+              "text": "Forgot password?",
+              "attributes": {
+                "class": "forget-password link",
+                "href": "/passwordreset"
+              },
+              "elements": []
+            },
+            {
+              "id": "id-rowfjoie",
+              "type": "button",
+              "text": "Login",
+              "attributes": {
+                "type": "submit"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "id-rowfjoie",
+      "type": "section",
+      "text": "",
+      "attributes": {
+        "class": "xx container"
+      },
+      "elements": [
+        {
+          "id": "id-rowfjoie",
+          "type": "h1",
+          "text": "Section 2",
+          "attributes": {
+            "class": "xx heading"
+          },
+          "elements": []
+        },
+        {
+          "id": "id-rowfjoie",
+          "type": "div",
+          "text": "",
+          "attributes": {
+            "class": "xx p wrapper"
+          },
+          "elements": [
+            {
+              "id": "id-rowfjoie",
+              "type": "p",
+              "text": "Hello from a paragraph in the the section 2",
+              "attributes": {
+                "class": "xx p"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

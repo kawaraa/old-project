@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #eceff3;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Lato", "Comic", "Roboto", sans-serif, "Helvetica", "Helvetica Neue";
+}
+
+#start-popup {
+  z-index: 1;
+  /* display: none; */
+  background: rgb(0, 0, 0, 0.5);
+}
+#start-form {
+  background: #ffffff;
+  width: 600px;
+  height: 90vh;
+  margin: 5vh auto 0 auto;
+  padding: 20px;
+}
+.user-camera-preview {
+  width: 100%;
+  margin: 0;
+}
+#user-camera,
+#user-video {
+  transform: scaleX(-1);
+  width: 100%;
+  background: black;
+}
+.settings-inputs {
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+.settings-inputs > input[name="nickname"],
+select[name="gender"],
+select[name="country"] {
+  flex: auto;
+  font-size: 18px;
+  cursor: pointer;
+}
+#start-form > button[type="submit"] {
+  display: block;
+  width: 200px;
+  height: 90px;
+  margin: 15px auto 0 auto;
+  text-align: center;
+  border: 1px solid burlywood;
+  background: rgb(122, 233, 122);
+  font-size: 24px;
+  cursor: pointer;
+}
+#start-form > button[type="submit"]:hover {
+  background: palegreen;
+}
+
+#app {
+  position: relative;
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+.show-members-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background: darkgray;
+  z-index: 1;
+}
+#members-wrapper {
+  display: none;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  flex-flow: column;
+  list-style: none;
+  background: rgb(183, 255, 255);
+}
+.left.container {
+  width: 700px;
+}
+#stage-wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-flow: wrap;
+  align-content: center;
+  width: 100%;
+  height: 83vh;
+  background: black;
+}
+.stage.item {
+  flex: 1;
+}
+.stage.video {
+  transform: scaleX(-1);
+  width: 100%;
+}
+#queue-wrapper {
+  overflow: scroll;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: blanchedalmond;
+}
+.queue.item {
+  overflow: hidden;
+  min-width: 50px;
+  max-width: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  margin: 0 2px;
+  padding: 0;
+  border-radius: 50%;
+}
+.queue.video {
+  width: 100%;
+}
+#control-wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  justify-items: baseline;
+  background: darkgrey;
+}
+#control-wrapper > label[for="join-the-queue"] {
+  padding: 14px 0;
+  font-size: 18px;
+}
+label[for="join-the-queue"] > input[type="checkbox"] {
+  cursor: pointer;
+}
+.control.leave-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: lightpink;
+  border: none;
+  cursor: pointer;
+}
+/* .control.leave-btn > .img {} */
+.right.container {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0 0 0 10px;
+  flex-flow: column;
+}
+#user-video-preview {
+  /* position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px; */
+  width: 100%;
+}
+#user-video {
+  display: block;
+  margin: 0 auto;
+}
+.chat.wrapper {
+  display: flex;
+  flex: auto;
+  margin: 0;
+  padding: 0;
+  flex-flow: column;
+}
+#conversation {
+  display: flex;
+  flex: auto;
+  margin: 0;
+  padding: 0;
+  flex-flow: column-reverse;
+  list-style: none;
+}
+.message.card {
+}
+.message.owner {
+}
+.message.content {
+}
+.chat.form {
+  margin: 0;
+  padding: 0;
+}
+.chat.text-input {
+}
+.chat.form > button[type="submit"] {
+}

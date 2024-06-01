@@ -1,0 +1,41 @@
+{
+  "publicDir": "/public",
+  "authResolver": {
+    "cookieOption": {
+      "httpOnly": true
+    }
+  },
+  "htmlTags": [
+    "nav",
+    "main",
+    "article",
+    "header",
+    "aside",
+    "section",
+    "footer",
+    "ol",
+    "ul",
+    "table",
+    "form",
+    "div",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "p",
+    "a",
+    "button",
+    "li",
+    "label",
+    "strong",
+    "i",
+    "time",
+    "audio",
+    "video",
+    "img",
+    "svg",
+    "canvas"
+  ]
+}

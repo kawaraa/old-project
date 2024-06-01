@@ -1,0 +1,95 @@
+module.exports = () => `
+<style>
+  .outer-container.login {
+    height: 100Vh;
+  }
+
+  .login.header {
+    text-align: center;
+  }
+
+  .login.logo {
+    width: 100px;
+    display: inline-block;
+  }
+
+  .heading.login {
+    margin: 30px 0;
+    font-size: 30px;
+    color: var(--font-color);
+  }
+
+  .login.form {
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 var(--font-color);
+
+  }
+
+  .input-field {
+    margin: 20px 0;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background: var(--button-bg-color);
+    padding: 5px 0;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background: var(--hover-color);
+  }
+</style>
+
+<main class="outer-container login">
+  <header class="login header">
+    <img src="/image/favicon/android-chrome-192x192.png" alt="JSCMS Logo" class="login logo">
+    <h1 class="heading login">Log into admin page.</h1>
+  </header>
+  <form class="login form">
+    <span id="login-error"></span>
+    <div class="input-field username">
+      <input type="text" name="username" spellcheck="off" autocapitalize="none" placeholder="Username" class="no-line">
+    </div>
+    <div class="input-field password">
+      <input type="password" name="password" placeholder="Password" class="no-line">
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  </section>
+</main>
+
+<script>
+  const errorElement = document.getElementById("login-error");
+
+  document.forms[0].onsubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const { username, password } = e.target
+      const response = await Http.send({ username: username.value, password: password.value }, "/api/login")
+      if (response) window.location.href = "/admin"
+    } catch (error) {
+      errorElement.innerHTML = error.message
+    }
+  }
+
+</script>
+`

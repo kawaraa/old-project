@@ -1,0 +1,175 @@
+module.exports = ( USER ) => `
+<style>
+  /* Navbar styles */
+  .navbar.outer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin: 0;
+    background: var(--font-color);
+    z-index: 10;
+    transition: 0.2s ease;
+  }
+
+  .navbar.container {
+    display: flex;
+    padding: 0;
+  }
+
+  .navbar.icon.wrapper {
+    display: none;
+    cursor: pointer;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .icon-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .icon-bar2 {
+    opacity: 0;
+  }
+
+  .change .icon-bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  #navbar-list {
+    list-style: none;
+    flex: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  /* .navbar.item {} */
+
+  .navbar.link {
+    display: block;
+    text-decoration: none;
+    margin: 0;
+    padding: 15px;
+    font-size: 17px;
+    color: var(--bg-color);
+  }
+
+  .navbar.link:hover {
+    background: var(--button-bg-color);
+  }
+
+  .user-options.wrapper {
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .user-options.button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  #user-options-list {
+    overflow: hidden;
+    list-style: none;
+    position: absolute;
+    top: 55px;
+    right: 30px;
+    min-width: 150px;
+    background: var(--white-color);
+    box-shadow: 0 0 5px 0 var(--font-color);
+    border-radius: 5px;
+  }
+
+
+  .user-options.link {
+    display: block;
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--font-color);
+
+  }
+
+  .user-options.link:hover {
+    background: var(--button-bg-color);
+    color: var(--bg-color);
+  }
+
+
+  /* =============== Mobile & Tablet styles =============== */
+  @media screen and (max-width: 850px) {
+    .navbar.container {
+      padding: 6px 10px;
+    }
+
+    .navbar.icon.wrapper {
+      display: block;
+    }
+
+
+  }
+</style>
+
+<div class="navbar outer">
+  <nav class="navbar container no-line" title="navigation bar" tabindex="0">
+    <div class="navbar icon wrapper" onclick="myFunction(this)">
+      <div class="icon-bar1"></div>
+      <div class="icon-bar2"></div>
+      <div class="icon-bar3"></div>
+    </div>
+
+    <ul id="navbar-list" class="no-line">
+      <li class="navbar item"><a href="/admin" class="navbar link no-line">Home</a></li>
+      <li class="navbar item"><a href="/admin/editor" class="navbar link no-line">Editor</a></li>
+      <li class="navbar item"><a href="/admin/pages" class="navbar link no-line">Pages</a></li>
+      <li class="navbar item"><a href="/admin/components" class="navbar link no-line">Components</a></li>
+      <li class="navbar item"><a href="/admin/meta-tags" class="navbar link no-line">Meta Tags</a></li>
+      <li class="navbar item"><a href="/admin/link-tags" class="navbar link no-line">Link Tags</a></li>
+      <li class="navbar item"><a href="/admin/code-tags" class="navbar link no-line">Code Tags</a></li>
+      <li class="navbar item"><a href="/admin/deleted" class="navbar link no-line">Deleted</a></li>
+      <li class="navbar item"><a href="/admin/logs" class="navbar link no-line">Logs</a></li>
+      <li class="navbar item"><a href="/admin/tools" class="navbar link no-line">Tools</a></li>
+      <li class="navbar item"><a href="/admin/users" class="navbar link no-line">Users</a></li>
+    </ul>
+
+    <div class="user-options wrapper">
+      <button class="user-options button no-line"
+        onclick="showUserOptions()">${USER.name.charAt(0).toUpperCase()}</button>
+
+      <ul id="user-options-list" class="hide">
+        <li class="user-options item"><a href="/api/logout" class="user-options link no-line">Logout</a></li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <script>
+
+    function myFunction(x) {
+      x.classList.toggle("change");
+    }
+
+    function showUserOptions() {
+      document.getElementById("user-options-list").classList.toggle("hide");
+    }
+  </script>
+</div>
+`;

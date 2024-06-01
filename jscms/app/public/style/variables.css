@@ -1,0 +1,86 @@
+:root {
+  /* 
+  Link color => --link-color & Link hover color => 
+  Button background => --link-color & Button hover background => --hover-color
+  Button background => --font-color & Button hover background => --black-color
+  */
+  --bg-color: #eceff3; /* rgb(236, 239, 243) */
+  --font-color: #585757; /* rgb(88, 87, 87) */
+  --link-color: blue; /* #7b95e0 rgb(0, 0, 255)*/
+  --button-bg-color: #7b95e0; /* #7b95e0 rgb(123, 149, 224) */
+  --hover-color: #4fb9ff; /* #4fb9ff rgb(79, 185, 255) */
+  --green-color: #6aa84f;
+  --black-color: #050505; /* rgb(5, 5, 5) */
+  --white-color: #ffffff; /* rgb(255, 255, 255) */
+  --focus-color: blue;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Lato", "Roboto", "Comic", "Sora", "Mulish", "Spartan", "Quicksand", sans-serif, Arial, Verdana,
+    "Helvetica", "Helvetica Neue";
+  margin: 0;
+  padding: 0;
+}
+.outer-container {
+  margin: 0;
+  padding: 60px 0 0 0;
+  width: 100%;
+}
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px 5px;
+}
+.no-line {
+  outline: none;
+}
+.hide {
+  display: none;
+}
+#loading-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

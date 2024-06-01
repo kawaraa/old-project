@@ -1,0 +1,409 @@
+module.exports = () => `
+<style>
+  .outer-container.editor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .editor.container {
+    display: flex;
+    padding: 0;
+    height: 100%;
+  }
+
+  .editor.tools {
+    position: relative;
+    width: 300px;
+    height: 100%;
+  }
+
+  #tools-header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .header.btn {
+    /* border: none; */
+    flex: 3;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .tools.content {
+    display: none;
+  }
+
+  .tools.content.show {
+    display: block;
+  }
+
+  .tools.content.add.show {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .tools.add-btn {
+    position: relative;
+    width: 200px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .tools.plus-sign {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+    background: var(--green-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+  }
+
+  #tools-container {
+    padding-top: 30px;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  .editor.preview {
+    flex: auto;
+    background: var(--white-color);
+    height: 100%;
+    overflow: scroll;
+  }
+
+
+  #editor-sections,
+  #editor-elements {
+    display: none;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 60px;
+    background: var(--white-color);
+  }
+
+  #editor-elements {
+    overflow: hidden;
+  }
+
+  .sections-container,
+  .elements-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 50px 70px 50px;
+    box-shadow: 0 0 5px 0 var(--font-color);
+    border-radius: 10px;
+  }
+
+  .sections.wrapper {
+    display: flex;
+    height: 100%;
+  }
+
+  .sections.close-img {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .editor.section-name {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .sections.list {
+    list-style: none;
+    overflow: hidden;
+    flex: auto;
+    background: var(--white-color);
+    box-shadow: 0 0 5px 0 var(--font-color);
+    border-radius: 5px;
+  }
+
+  .sections.item {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .sections.item.selected {
+    background: var(--font-color);
+    color: var(--bg-color);
+  }
+
+  .sections.item:hover {
+    background: var(--font-color);
+    color: var(--bg-color);
+  }
+
+  .sections.image-wrapper {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #section-image {
+    width: 400px;
+    height: 300px;
+  }
+
+  .sections.create-btn,
+  .element.create-btn {
+    position: absolute;
+    right: 50px;
+    bottom: 15px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: var(--bg-color);
+    background: var(--button-bg-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .sections.create-btn:hover {
+    background: var(--hover-color);
+    color: var(--bg-color);
+  }
+
+  .new-section.body {
+    min-height: 100%;
+  }
+
+  .new-section {
+    min-height: 100px;
+    border: 1px dashed var(--focus-color);
+  }
+
+  .new-section.focus {
+    border: 3px solid var(--focus-color);
+  }
+
+  .elements-container {
+    height: 650px;
+  }
+
+  .elements.imgs-wrapper {
+    display: flex;
+    flex-flow: wrap;
+    overflow: scroll;
+    height: 100%;
+  }
+
+  .elements.box {
+    width: 175px;
+    height: 175px;
+    cursor: pointer;
+  }
+
+  .elements.box.selected {
+    border: 3px solid var(--focus-color);
+  }
+
+  .elements.material-icons {
+    font-size: 40px;
+    color: var(--font-color);
+  }
+
+  .elements.img {
+    display: block;
+    width: 50px;
+  }
+</style>
+
+<main class="outer-container editor">
+  <div class="editor container">
+
+    <section class="editor tools">
+      <header id="tools-header">
+        <button name="update" onclick="showToolContent(this)" class="header btn">Update</button>
+        <button name="style" onclick="showToolContent(this)" class="header btn">Style</button>
+        <button name="add" onclick="showToolContent(this)" class="header btn active">Add</button>
+      </header>
+
+      <div id="tools-container">
+        <div class="tools content update">
+          Update tools
+        </div>
+        <div class="tools content style">
+          Style tools
+        </div>
+        <div class="tools content add show">
+          <button onclick="getId('editor-sections').style.display = 'block'" class="tools add-btn">
+            New section <span class="tools plus-sign">+</span></button>
+          <button onclick="getId('editor-elements').style.display = 'block'" class="tools add-btn">
+            New element <span span class="tools plus-sign">+</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="editor preview">
+      <div id="preview-container" class="new-section body"></div>
+    </section>
+
+    <div id="editor-sections">
+      <section class="sections-container">
+
+        <img src="/image/x-icon.svg" onclick="getId('editor-sections').style.display = 'none'" alt="Close button logo"
+          class="sections close-img">
+
+        <input type="text" name="sectionName" onchange="editor.section.name = this.value"
+          placeholder="Give this component a name" class="editor section-name">
+
+        <div class="sections wrapper">
+          <ul class="sections list">
+            <li onclick="changeElementImage(this, 'website-header.png')" class="sections item selected no-line">
+              Header
+            </li>
+            <li onclick="changeElementImage(this, 'navigation-bar.png', 'nav')" class="sections item no-line">Navigation
+            </li>
+            <li onclick="changeElementImage(this, 'main-section.png', 'main')" class="sections item no-line">Main</li>
+            <li onclick="changeElementImage(this, 'bottom-section.png', 'footer')" class="sections item no-line">Bottom
+            </li>
+            <li onclick="changeElementImage(this, 'aside-section.png', 'aside')" class="sections item no-line">Aside
+            </li>
+            <li onclick="changeElementImage(this, 'article.png', 'article')" class="sections item no-line">Article</li>
+            <li onclick="changeElementImage(this, 'normal-section.png', 'section')" class="sections item no-line">
+              Section
+            </li>
+            <li onclick="changeElementImage(this, 'form.png', 'form')" class="sections item no-line">Form</li>
+            <li onclick="changeElementImage(this, 'ordered-list.png', 'ul')" class="sections item no-line">ordered List
+            </li>
+            <li onclick="changeElementImage(this, 'unordered-list.png', 'ol')" class="sections item no-line">Unordered
+              List</li>
+            <li onclick="changeElementImage(this, 'table.png', 'table')" class="sections item no-line">Table</li>
+            <li onclick="changeElementImage(this, 'division-section.png', 'div')" class="sections item no-line">Other
+            </li>
+          </ul>
+          <div class="sections image-wrapper">
+            <img src="/image/website-header.png" alt="Section preview image" id="section-image" class="no-line">
+          </div>
+        </div>
+
+        <button onclick="editor.createSection()" class="sections create-btn no-line">Create</button>
+      </section>
+    </div>
+
+    <div id="editor-elements">
+      <section class="elements-container">
+        <img src="/image/x-icon.svg" onclick="getId('editor-elements').style.display = 'none'" alt="Close button logo"
+          class="sections close-img">
+
+        <div class="elements imgs-wrapper">
+
+          <div class="elements box" onclick="selectElement(this, 'h1')">
+            <i class="elements material-icons">title</i>
+            <span class="elements text">Heading</span>
+            <select onchange="editor.element.tag = this.value" class="elements type">
+              <option value="h1" selected>Heading 1</option>
+              <option value="h2">Heading 2</option>
+              <option value="h3">Heading 3</option>
+              <option value="h4">Heading 4</option>
+              <option value="h5">Heading 5</option>
+              <option value="h6">Heading 6</option>
+            </select>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'p')">
+            <i class="elements material-icons">format_textdirection_l_to_r</i>
+            <span class="elements text">Paragraph</span>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'img', 'src')">
+            <i class="elements material-icons">image</i>
+            <span class="elements text">Image</span>
+            <input type="url" onchange="editor.element.value = this.value">
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'video', 'src')">
+            <i class="elements material-icons">ondemand_video</i>
+            <span class="elements text">Video</span>
+            <input type="url" onchange="editor.element.value = this.value">
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'input', 'type', 'text')">
+            <i class="elements material-icons">input</i>
+            <span class="elements text">input</span>
+            <select onchange="editor.element.tag = this.value" class="elements type">
+              <option value="text" selected>Text</option>
+              <option value="email">Email</option>
+              <option value="password">Password</option>
+              <option value="number">Number</option>
+              <option value="date">Date</option>
+              <option value="image">Image</option>
+              <option value="file">File</option>
+            </select>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'button')">
+            <img src="/image/button-icon.png" alt="Button logo" class="elements img">
+            <span class="elements text">Button</span>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'div')">
+            <i class="elements material-icons">code</i>
+            <span class="elements text">HTML</span>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'script')">
+            <i class="elements material-icons">code</i>
+            <span class="elements text">JavaScript</span>
+          </div>
+          <div class="elements box" onclick="selectElement(this, 'style')">
+            <i class="elements material-icons">code</i>
+            <span class="elements text">Style</span>
+          </div>
+        </div>
+
+        <button onclick="editor.createElement()" class="element create-btn no-line">Create</button>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const editor = new Editor(getId("tools-container"), getId("preview-container"));
+
+  function changeElementImage(el, url, tag) {
+    editor.section.tag = tag;
+    Array.from(query(".sections.list").children).forEach(el => removeClass(el, "selected"));
+    addClass(el, "selected");
+    getId("section-image").src = "/image/" + url;
+  };
+
+  function showToolContent(el) {
+    Array.from(getId("tools-header").children).forEach(el => removeClass(el, "active"));
+    Array.from(getId("tools-container").children).forEach(el => removeClass(el, "show"));
+    addClass(el, "active");
+    addClass(query(".tools.content." + el.name), "show");
+    // Show tools based on the focused element
+  }
+
+  function selectElement(el, tag, type, value) {
+    editor.element.tag = tag;
+    if (type) editor.element.type = type;
+    if (value) editor.element.value = value;
+    Array.from(query(".elements.imgs-wrapper").children).forEach(el => removeClass(el, "selected"));
+    addClass(el, "selected");
+  };
+</script>
+`

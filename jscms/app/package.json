@@ -1,0 +1,37 @@
+{
+  "name": "jscms",
+  "version": "1.0.0",
+  "description": "JSCMS is a JavaScript based CMS which is built using JavaScript.",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "keywords": [
+    "jscms",
+    "JavaScript CMS",
+    "JavaScript Content Management SYstem",
+    "Free Content Management SYstem"
+  ],
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadxite/jscms.git"
+  },
+  "homepage": "https://github.com/ahmadxite/jscms#readme",
+  "bugs": {
+    "url": "https://github.com/ahmadxite/jscms/issues"
+  },
+  "dependencies": {
+    "cookie": "^0.4.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "redis": "^3.0.2",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

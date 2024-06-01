@@ -1,0 +1,28 @@
+{
+  "port": 3000,
+  "publicDir": "/frontend/public",
+  "mysql": {
+    "host": "database",
+    "port": 3306,
+    "user": "root",
+    "password": "root-psw"
+  },
+  "firewall": {
+    "secretKey": "ahmad-food-admin-secret",
+    "tokenOptions": {
+      "expiresIn": "1h"
+    },
+    "cookieOption": {
+      "httpOnly": true
+    }
+  },
+  "authResolver": {
+    "cookieOption": {
+      "httpOnly": true
+    }
+  },
+  "mysqlDatabaseBackupCron": {
+    "days": 1,
+    "backupFileName": "databases-backup.sql"
+  }
+}

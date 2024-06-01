@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/style/main.css" />
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"> -->
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="start-popup" style="position: fixed;top: 0;left: 0; width: 100%;height: 100vh;">
+      <form onsubmit="join(window.event)" id="start-form">
+        <div class="user-camera-preview">
+          <canvas id="user-camera"></canvas>
+        </div>
+        <div class="settings-inputs">
+          <input type="text" name="nickname" placeholder="Nickname" />
+          <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="couple" selected>Couple</option>
+          </select>
+          <select name="room">
+            <option value="GLOBAL" selected>
+              <span class="country name">All countries</span>
+              <img src="/flag/flags-Global.jpg" class="country flag" />
+            <option value="AL">
+              <span class="country name">Albania</span>
+              <img src="/flag/flags-AL.jpg" class="country flag" />
+            </option>
+            <option value="AR">
+              <span class="country name">Argentina</span>
+              <img src="/flag/flags-AR.jpg" class="country flag" />
+            </option>
+            <option value="AM">
+              <span class="country name">Armenia</span>
+              <img src="/flag/flags-AM.jpg" class="country flag" />
+            </option>
+            <option value="AU">
+              <span class="country name">Australia</span>
+              <img src="/flag/flags-AU.jpg" class="country flag" />
+            </option>
+            <option value="AT">
+              <span class="country name">Austria</span>
+              <img src="/flag/flags-AT.jpg" class="country flag" />
+            </option>
+            <option value="BY">
+              <span class="country name">Belarus</span>
+              <img src="/flag/flags-BY.jpg" class="country flag" />
+            </option>
+            <option value="BE">
+              <span class="country name">Belgium</span>
+              <img src="/flag/flags-BE.jpg" class="country flag" />
+            </option>
+            <option value="BA">
+              <span class="country name">Bosnia-Herzegovina</span>
+              <img src="/flag/flags-BA.jpg" class="country flag" />
+            </option>
+            <option value="BR">
+              <span class="country name">Brazil</span>
+              <img src="/flag/flags-BR.jpg" class="country flag" />
+            </option>
+            <option value="BG">
+              <span class="country name">Bulgaria</span>
+              <img src="/flag/flags-BG.jpg" class="country flag" />
+            </option>
+            <option value="CA">
+              <span class="country name">Canada</span>
+              <img src="/flag/flags-CA.jpg" class="country flag" />
+            </option>
+            <option value="CL">
+              <span class="country name">Chile</span>
+              <img src="/flag/flags-CL.jpg" class="country flag" />
+            </option>
+            <option value="CN">
+              <span class="country name">China</span>
+              <img src="/flag/flags-CN.jpg" class="country flag" />
+            </option>
+            <option value="CO">
+              <span class="country name">Colombia</span>
+              <img src="/flag/flags-CO.jpg" class="country flag" />
+            </option>
+            <option value="HR">
+              <span class="country name">Croatia</span>
+              <img src="/flag/flags-HR.jpg" class="country flag" />
+            </option>
+            <option value="CZ">
+              <span class="country name">Czech Republic</span>
+              <img src="/flag/flags-CZ.jpg" class="country flag" />
+            </option>
+            <option value="DK">
+              <span class="country name">Denmark</span>
+              <img src="/flag/flags-DK.jpg" class="country flag" />
+            </option>
+            <option value="FI">
+              <span class="country name">Finland</span>
+              <img src="/flag/flags-FI.jpg" class="country flag" />
+            </option>
+            <option value="FR">
+              <span class="country name">France</span>
+              <img src="/flag/flags-FR.jpg" class="country flag" />
+            </option>
+            <option value="DE">
+              <span class="country name">Germany</span>
+              <img src="/flag/flags-DE.jpg" class="country flag" />
+            </option>
+            <option value="GR">
+              <span class="country name">Greece</span>
+              <img src="/flag/flags-GR.jpg" class="country flag" />
+            </option>
+            <option value="HU">
+              <span class="country name">Hungary</span>
+              <img src="/flag/flags-HU.jpg" class="country flag" />
+            </option>
+            <option value="IN">
+              <span class="country name">India</span>
+              <img src="/flag/flags-IN.jpg" class="country flag" />
+            </option>
+            <option value="ID">
+              <span class="country name">Indonesia</span>
+              <img src="/flag/flags-ID.jpg" class="country flag" />
+            </option>
+            <option value="IE">
+              <span class="country name">Ireland</span>
+              <img src="/flag/flags-IE.jpg" class="country flag" />
+            </option>
+            <option value="IL">
+              <span class="country name">Israel</span>
+              <img src="/flag/flags-IL.jpg" class="country flag" />
+            </option>
+            <option value="IT">
+              <span class="country name">Italy</span>
+              <img src="/flag/flags-IT.jpg" class="country flag" />
+            </option>
+            <option value="JP">
+              <span class="country name">Japan</span>
+              <img src="/flag/flags-JP.jpg" class="country flag" />
+            </option>
+            <option value="KZ">
+              <span class="country name">Kazakhstan</span>
+              <img src="/flag/flags-KZ.jpg" class="country flag" />
+            </option>
+            <option value="LV">
+              <span class="country name">Latvia</span>
+              <img src="/flag/flags-LV.jpg" class="country flag" />
+            </option>
+            <option value="LT">
+              <span class="country name">Lithuania</span>
+              <img src="/flag/flags-LT.jpg" class="country flag" />
+            </option>
+            <option value="LU">
+              <span class="country name">Luxembourg</span>
+              <img src="/flag/flags-LU.jpg" class="country flag" />
+            </option>
+            <option value="MK">
+              <span class="country name">Macedonia</span>
+              <img src="/flag/flags-MK.jpg" class="country flag" />
+            </option>
+            <option value="MY">
+              <span class="country name">Malaysia</span>
+              <img src="/flag/flags-MY.jpg" class="country flag" />
+            </option>
+            <option value="MX">
+              <span class="country name">Mexico</span>
+              <img src="/flag/flags-MX.jpg" class="country flag" />
+            </option>
+            <option value="MD">
+              <span class="country name">Moldova</span>
+              <img src="/flag/flags-MD.jpg" class="country flag" />
+            </option>
+            <option value="NL">
+              <span class="country name">Netherlands</span>
+              <img src="/flag/flags-NL.jpg" class="country flag" />
+            </option>
+            <option value="NZ">
+              <span class="country name">New Zealand</span>
+              <img src="/flag/flags-NZ.jpg" class="country flag" />
+            </option>
+            <option value="NO">
+              <span class="country name">Norway</span>
+              <img src="/flag/flags-NO.jpg" class="country flag" />
+            </option>
+            <option value="PE">
+              <span class="country name">Peru</span>
+              <img src="/flag/flags-PE.jpg" class="country flag" />
+            </option>
+            <option value="PH">
+              <span class="country name">Philippines</span>
+              <img src="/flag/flags-PH.jpg" class="country flag" />
+            </option>
+            <option value="PL">
+              <span class="country name">Poland</span>
+              <img src="/flag/flags-PL.jpg" class="country flag" />
+            </option>
+            <option value="PT">
+              <span class="country name">Portugal</span>
+              <img src="/flag/flags-PT.jpg" class="country flag" />
+            </option>
+            <option value="RO">
+              <span class="country name">Romania</span>
+              <img src="/flag/flags-RO.jpg" class="country flag" />
+            </option>
+            <option value="RU">
+              <span class="country name">Russia</span>
+              <img src="/flag/flags-RU.jpg" class="country flag" />
+            </option>
+            <option value="RS">
+              <span class="country name">Serbia</span>
+              <img src="/flag/flags-RS.jpg" class="country flag" />
+            </option>
+            <option value="SK">
+              <span class="country name">Slovakia</span>
+              <img src="/flag/flags-SK.jpg" class="country flag" />
+            </option>
+            <option value="SI">
+              <span class="country name">Slovenia</span>
+              <img src="/flag/flags-SI.jpg" class="country flag" />
+            </option>
+            <option value="ZA">
+              <span class="country name">South Africa</span>
+              <img src="/flag/flags-ZA.jpg" class="country flag" />
+            </option>
+            <option value="KR">
+              <span class="country name">South Korea</span>
+              <img src="/flag/flags-KR.jpg" class="country flag" />
+            </option>
+            <option value="ES">
+              <span class="country name">Spain</span>
+              <img src="/flag/flags-ES.jpg" class="country flag" />
+            </option>
+            <option value="SE">
+              <span class="country name">Sweden</span>
+              <img src="/flag/flags-SE.jpg" class="country flag" />
+            </option>
+            <option value="CH">
+              <span class="country name">Switzerland</span>
+              <img src="/flag/flags-CH.jpg" class="country flag" />
+            </option>
+            <option value="TW">
+              <span class="country name">Taiwan</span>
+              <img src="/flag/flags-TW.jpg" class="country flag" />
+            </option>
+            <option value="TH">
+              <span class="country name">Thailand</span>
+              <img src="/flag/flags-TH.jpg" class="country flag" />
+            </option>
+            <option value="TR">
+              <span class="country name">Turkey</span>
+              <img src="/flag/flags-TR.jpg" class="country flag" />
+            </option>
+            <option value="UA">
+              <span class="country name">Ukraine</span>
+              <img src="/flag/flags-UA.jpg" class="country flag" />
+            </option>
+            <option value="GB">
+              <span class="country name">United Kingdom</span>
+              <img src="/flag/flags-GB.jpg" class="country flag" />
+            </option>
+            <option value="US">
+              <span class="country name">United States</span>
+              <img src="/flag/flags-US.jpg" class="country flag" />
+            </option>
+            <option value="VE">
+              <span class="country name">Venezuela</span>
+              <img src="/flag/flags-VE.jpg" class="country flag" />
+            </option>
+          </select>
+        </div>
+        <button type="submit">Enter</button>
+      </form>
+    </div>
+    <div id="app">
+      <button onclick="showMembersList()" class="show-members-btn"></button>
+      <ul id="members-wrapper">
+        <!-- <li class="queue item"><img src="/media/girl.jpg" class="queue video" /></li>
+        <li class="queue item"><img src="/media/girl.jpg" class="queue video" /></li> -->
+      </ul>
+      <div class="left container">
+        <div id="stage-wrapper">
+          <!-- <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div>
+          <div class="stage video-wrapper"><img src="/media/girl.jpg" class="stage video" /></div> -->
+        </div>
+        <ul id="queue-wrapper">
+          <!-- <li class="queue item"><img src="/media/girl.jpg" class="queue video" /></li>
+          <li class="queue item"><img src="/media/girl.jpg" class="queue video" /></li> -->
+        </ul>
+        <div id="control-wrapper">
+          <label for="join-the-queue"><input type="checkbox" onchange="queue(this)" /> In the queue</label>
+          <label for="join-the-queue"><input type="checkbox" onchange="mute(this)" /> Mute</label>
+          <button type="button" onclick="leave(this)" class="control leave-btn">Leave</button>
+        </div>
+      </div>
+      <div class="right container">
+        <div id="user-video-preview"><canvas id="user-video"></canvas></div>
+        <div class="chat wrapper">
+          <ul id="conversation">
+            <li class="message card">
+              <span class="message owner">Name 1</span>
+              <p class="message content">content 1</p>
+            </li>
+            <li class="message card">
+              <span class="message owner">Name 2</span>
+              <p class="message content">content 2</p>
+            </li>
+          </ul>
+          <form onsubmit="sendMessage(this)" class="chat form">
+            <textarea name="message" class="chat text-input"></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="/bundle.js"></script> -->
+    <script src="/script/utility.js"></script>
+    <script src="/script/main.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,47 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "Admin is the administration control panel for AhmadFood company.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js",
+    "build": "npx webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawaraa/ahmad-food.git"
+  },
+  "homepage": "https://github.com/kawaraa/ahmad-food#readme",
+  "bugs": {
+    "url": "https://github.com/kawaraa/ahmad-food/issues"
+  },
+  "dependencies": {
+    "cookie": "^0.4.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "k-utilities": "^1.0.2",
+    "mysql": "^2.18.1",
+    "@google-cloud/storage": "^5.0.1",
+    "nodemailer": "^6.4.10",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^3.5.3",
+    "nodemon": "^2.0.2",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-router-dom": "^5.1.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
